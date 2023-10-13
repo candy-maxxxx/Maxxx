@@ -1,0 +1,42 @@
+body {
+	background-color:  #AFDBF5;
+	background-image: url("CS.jpg");
+	background-size: 650px 350px;
+	background-repeat: no-repeat;
+	background-position: center;
+	margin:0px;
+}
+
+h1{
+	text-align: center;
+	font-family: Garamond;
+	background-color: #4682B4;
+	border-color: blue;
+	border-style: dotted;
+	border-width: 2px;
+	width: 250px;
+	padding: 10px 15px;
+	margin-bottom: 20px;
+}
+
+p{
+	text-align: justify;
+	background-color: hsl(226, 44%, 38%);
+	font-style:italic;
+	padding: 20px;
+	border-color: black;
+	border-width: 3px;
+	border-top-style: double;
+	border-right-style: ridge;
+	border-bottom-style: double;
+	border-left-style: outset;
+	width: 500px;
+}
+
+span{
+	font-style:italic;
+	font-weight: bold;
+	color: rgb(93, 155, 219);
+	margin-left: 2px;
+	margin-right: 5px;
+}
