@@ -1,0 +1,224 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    background: url('background.jpg') no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+section {
+    min-height: 100vh;
+    padding: 10rem 9% 2rem;
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 80px;
+    background: transparent;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 32px;
+    color: #225724; 
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.navbar a {
+    position: relative;
+    font-size: 18px;
+    color: #225724; 
+    font-weight: 500;
+    text-decoration: none;
+    margin-left: 35px;
+}
+
+.navbar a::before {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #4CAF50; 
+    transition: width 0.3s;
+}
+
+.navbar a:hover::before {
+    width: 100%;
+}
+
+.Home {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 0 10%;
+}
+
+.Home-Content {
+    max-width: 550px;
+}
+
+.Home-Content h1 {
+    font-size: 33px;
+    font-weight: 700;
+    line-height: 1.2;
+    color: #333; 
+}
+
+.Home-Content h3 {
+    font-size: 25px;
+    font-weight: 700;
+    color: #222; 
+}
+
+.Home-Content p {
+    font-size: 16px;
+    margin: 5px 15px 10px;
+    text-align: justify;
+    color: #103302; 
+}
+
+.Home-Content .btn-box {
+    display: flex;
+    justify-content: space-between;
+    width: 345px;
+    height: 50px;
+}
+
+.btn-box a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    height: 100%;
+    border: 2px solid #093B09; 
+    border-radius: 8px;
+    font-size: 19px;
+    color: #4CAF50; 
+    text-decoration: none;
+    font-weight: 600;
+    letter-spacing: 1px;
+    z-index: 1;
+    position: relative;
+    overflow: hidden;
+    transition: 0.5s;
+}
+
+.btn-box a
+{
+    color:#4CAF50;
+}
+
+.btn-box a:nth-child(2) {
+    background: transparent;
+}
+
+.btn-box a:nth-child(2):hover {
+    color: #000; 
+}
+
+.btn-box a:nth-child(2)::before {
+    background: #4CAF50; 
+}
+
+.btn-box a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: #093B09; 
+    z-index: -1;
+    transition: width 0.5s;
+}
+
+.btn-box a:hover::before {
+    width: 100%;
+}
+
+.btn-box a:hover {
+    color: #fff;
+    background: #4CAF50; 
+}
+
+.WellRead h1
+{
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 1.2;
+    color: #333; 
+}
+.WellRead h5
+{
+    font-size: 25px;
+    font-weight: 700;
+    color: #333;
+}
+.WellRead h6
+{
+    font-size: 16px;
+    margin: 5px 125px 35px 125px;
+    text-align: justify;
+    color: #1e2420; 
+}
+.WellRead h3
+{
+    font-size: 20px;
+    font-weight: 700;
+    color: #222; 
+}
+.WellRead h4
+{
+    font-size: 25px;
+    font-weight: 700;
+    color: #222; 
+    line-height: 2;
+}
+#chat-container {
+    margin: 20px auto;
+    max-width: 400px;
+    padding: 10px;
+    border: 1px solid #999;
+    border-radius: 5px;
+}
+
+#chat-box {
+    height: 200px;
+    overflow-y: scroll;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+#user-input {
+    width: 70%;
+    padding: 5px;
+    border: 1px solid #ccc;
+}
+
+#send-button {
+    padding: 5px 10px;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+
