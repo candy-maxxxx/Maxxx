@@ -42,11 +42,6 @@ body {
     transition: .5s;
 }
 
-.header.sticky {
-    background: var(--bg-color);
-    box-shadow: 0 .1rem 1rem var(--shadow-color);
-}
-
 .logo {
     font-size: 2.5rem;
     color: var(--main-color);
@@ -58,17 +53,9 @@ body {
 .navbar a {
     position: relative;
     font-size: 1.7rem;
-    color: white;
+    color: black;
     font-weight: 500;
     margin-right: 2.0rem;
-}
-
-.header.sticky .navbar a {
-    color: var(--text-color);
-}
-
-.header.sticky .navbar a.active {
-    color: var(--main-color);
 }
 
 .navbar a.active::before {
@@ -81,20 +68,16 @@ body {
     background: var(--white-color);
 }
 
-.header.sticky .navbar a::before {
-    background: var(--main-color);
-    opacity: .7;
-}
-
 #darkMode-icon {
     font-size: 2.4rem;
     color: var(--white-color);
     cursor: pointer;
 }
 
-.header.sticky #darkMode-icon {
+#menu-icon {
+    font-size: 3.6rem;
     color: var(--text-color);
-    opacity: .9;
+    display: none;
 }
 
 section {
@@ -124,7 +107,7 @@ section {
 }
 
 .home-content p {
-    font-size: 1.4rem;
+    font-size: 1.7rem;
     text-align: justify; /*text*/
 }
 
@@ -190,6 +173,29 @@ section {
     display: flex;
     justify-content: center;
     align-items: center;
+    animation: professionRotate 13s ease-out infinite;
+}
+
+@keyframes professionRotate {
+    0%, 
+    20% {
+        transform: rotate(0deg);
+    }
+    25%, 
+    45% {
+        transform: rotate(-90deg);
+    }
+    50%, 
+    70% {
+        transform: rotate(-180deg);
+    }
+    75%, 
+    95% {
+        transform: rotate(-270deg);
+    }
+    100% {
+        transform: rotate(-360deg);
+    }
 }
 
 .home .profession-box .profession {
@@ -285,6 +291,9 @@ span {
     margin: 2rem 0 3rem;
 }
 
+/*services page design*/
+
+
 .services {
     min-height: auto;
     padding-bottom: 7rem;
@@ -320,7 +329,7 @@ span {
 }
 
 .services-box i {
-    font-size: 7px;
+    font-size: 7rem;
     color: var(--main-color);
 }
 
@@ -338,6 +347,9 @@ span {
     margin: 1rem 0 3rem;
 }
 
+
+
+/*clinic ni Doc*/
 .clinic {
     padding-bottom: 10rem;
 }
@@ -346,7 +358,7 @@ span {
     margin-bottom: 4rem;
 }
 
-.clinic clinic.container {
+.clinic .clinic-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     align-items: center;
@@ -357,26 +369,27 @@ span {
     position: relative;
     display: flex;
     border-radius: 2rem;
-    box-shadow: 0 0 1rem (rgb(0, 0, 0));
+    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.5); /* Fixing the box-shadow syntax */
     overflow: hidden;
 }
 
-.clinic-box img{
+.clinic-container .clinic-box img {
     width: 100%;
-    transition: .5s ease;
+    height: auto;
+    transition: 0.5s ease;
 }
 
-.clinic-box:hover img {
+.clinic-container .clinic-box:hover img {
     transform: scale(1.1);
 }
 
-.clinic-box .clinic-layer {
+.clinic-container .clinic-box .clinic-layer {
     position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(rgb(0, 0, 0), var(--main-color));
+    background: linear-gradient(rgba(0, 0, 0, 0.8), var(--main-color)); /* Fixing the linear gradient syntax */
     color: var(--white-color);
     display: flex;
     justify-content: center;
@@ -387,20 +400,20 @@ span {
     opacity: 0;
 }
 
-.clinic-box:hover .clinic-layer {
+.clinic-container .clinic-box:hover .clinic-layer {
     opacity: 1;
 }
 
-.clinic-layer h4 {
+.clinic-container .clinic-layer h4 {
     font-size: 3rem;
 }
 
-.clinic-layer p {
+.clinic-container .clinic-layer p {
     font-size: 1.6rem;
-    margin: .3rem 0 1rem;
+    margin: 0.3rem 0 1rem;
 }
 
-.clinic-layer a {
+.clinic-container .clinic-layer a {
     display: inline-flex;
     justify-content: center;
     align-items: center;
@@ -410,10 +423,11 @@ span {
     border-radius: 50%;
 }
 
-.clinic-layer a i {
+.clinic-container .clinic-layer a i {
     font-size: 2rem;
-    color:black ;
+    color: black;
 }
+
 
 /*contact page design*/
 
@@ -444,4 +458,69 @@ span {
     border-radius: .8rem;
     margin: .7rem 0;
     box-shadow: 0 .1rem .5rem var(--shadow-color);
+}
+
+.contact form .input-box input {
+    width: 49%;
+}
+
+.contact form textarea {
+    resize: none;
+}
+
+.contact form .btn {
+    margin-top: 2rem;
+    cursor: pointer;
+}
+
+/*footer design para sa website*/
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 2rem 7%;
+    background-color: var(--main-color);
+}
+
+.footer-text p {
+    font-size: 1.6rem;
+    color: var(--white-color);
+}
+
+.footer-iconTop a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: .8rem;
+    background: var(--white-color);
+    border-radius: .8rem;
+    border: .2rem solid var(--main-color);
+    outline: .2rem solid transparent;
+    transition: .5s ease;
+}
+
+.footer-iconTop a:hover {
+    outline-color: var(--white-color);
+}
+
+.footer-iconTop a i {
+    font-size: 2.4rem;
+    color: black;
+}
+
+
+@media (max-width: 1200px) {
+    html {
+        font-size: 50%;
+    }
+
+    .home .profession-container {
+        height: 85.8rem;
+    }
+
+    .home .profession-container .profession-box {
+        right: -12rem;
+        height: 85.8rem;
+    }
 }
