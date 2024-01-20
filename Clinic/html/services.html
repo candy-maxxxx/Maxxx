@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2nd Quarter Project</title>
+
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <link rel="stylesheet" href="../style/style.css">
+</head>
+
+<body>
+    <header class="header">
+        <a href="#" class="logo">MaxHealth</a>
+
+        <nav class="navbar">
+            <a href="../index.html"class="active">Home</a>
+            <a href="../html/library.html">HealthLex</a>
+            <a href="..//html/about.html">About</a>
+            <a href="../html/services.html">Services</a>
+            <a href="../html/contact.html">Contact</a>
+        </nav>
+
+        <div class="bx bx-moon" id="darkMode-icon"></div>
+
+    </header>
+    
+    <section class="services" id="services">
+    <h2 class="heading">Our website <span>Services</span></h2>
+
+    <div class="services-container">
+        <div class="services-box">
+            <i class='bx bx-library'></i>
+            <h3>HealthLex</h3>
+            <div class="more-text">
+                <p>HealthLex is a comprehensive online library of health-related
+                    information, including articles, videos, and infographics. Our
+                    library is constantly updated with the latest research and
+                    information, making it the perfect resource for anyone looking 
+                    to improve their health and well-being.
+                </p>
+            </div>
+            <a href="#" class="btn read-more">Read More</a>
+            <a href="#" class="btn show-less">Show Less</a>
+        </div>
+
+
+        <div class="services-box">
+            <i class='bx bx-plus-medical'></i>
+            <h3>Medical Professionals</h3>
+            <div class="more-text">
+            <p>As a dedicated platform for medical professionals, our website is 
+                designed to serve as your go-to resource for staying at the forefront 
+                of advancements in healthcare, fostering collaboration, and enhancing 
+                your professional expertise. Explore a myriad of features tailored to 
+                meet the unique needs of medical practitioners across various specialties.
+            </p>
+            </div>
+            <a href="#" class="btn read-more">Read More</a>
+            <a href="#" class="btn show-less">Show Less</a>
+        </div>
+
+
+        <div class="services-box">
+            <i class='bx bxs-group'></i>
+            <h3>Partner</h3>
+            <div class="more-text">
+                <p>Our website is your dedicated space to reach out and talk to us 
+                whenever you encounter challenges or have questions. As your 
+                trusted partner, we understand the importance of effective
+                communication and problem-solving. This platform is designed to
+                ensure that your concerns are heard, addressed, and resolved 
+                promptly, fostering a seamless and collaborative partnership 
+                experience.</p>
+            </div>
+            <a href="#" class="btn read-more">Read More</a>
+            <a href="#" class="btn show-less">Show Less</a>
+        </div>
+
+
+        <div class="services-box">
+            <i class='bx bxs-phone-call'></i>
+            <h3>Doctors</h3>
+            <div class="more-text">
+                <p>At our website, we take pride in providing a unique healthcare 
+                experience centered around approachability and ease of communication.
+                We understand that open and comfortable dialogue is crucial for a
+                positive doctor-patient relationship. Our platform brings together
+                a team of caring and empathetic physicians who prioritize creating 
+                a welcoming environment for patients to express their concerns and 
+                engage in open conversations about their health.</p>
+            </div>
+            <a href="#" class="btn read-more">Read More</a>
+            <a href="#" class="btn show-less">Show Less</a>
+        </div>
+    </div>
+    </section>
+
+    <script>
+document.querySelectorAll('.read-more').forEach((button) => {
+    button.addEventListener('click', (e) => {
+        e.preventDefault();
+        const servicesBox = button.closest('.services-box');
+        const moreText = servicesBox.querySelector('.more-text');
+        const showLessButton = servicesBox.querySelector('.show-less');
+
+        moreText.style.display = 'block';
+        button.style.display = 'none';
+        showLessButton.style.display = 'inline';
+    });
+});
+
+document.querySelectorAll('.show-less').forEach((button) => {
+    button.addEventListener('click', (e) => {
+        e.preventDefault();
+        const servicesBox = button.closest('.services-box');
+        const moreText = servicesBox.querySelector('.more-text');
+        const readMoreButton = servicesBox.querySelector('.read-more');
+
+        moreText.style.display = 'none';
+        button.style.display = 'none';
+        readMoreButton.style.display = 'block';
+    });
+});
+
+    </script>
+    
+
+
+    <footer class="footer">
+        <div class="footer-text">
+            <p>Copyright &copy; 2024 by MaxHealth  | All Rights Reserved</p>
+        </div>
+
+        <div class="footer-iconTop">
+            <a href="../html/services.html"><i class='bx bx-up-arrow-alt'></i></a>
+        </div>
+    </footer>
+
+</body>
+</html>
