@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<head>
+<title>Inventory System</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #dec5ff; 
+            margin: 0;
+            padding: 0;
+            display: flex;
+            scroll-behavior: smooth;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        #container {
+            background-color: #fff; 
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: none;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #d6bfff;
+        }
+        button {
+        padding: 10px 20px;
+        margin: 5px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        background-color: #5e4caf;
+        color: white;
+        transition: transform 0.3s ease; 
+        }
+        button:hover {
+        background-color: #432678;
+        transform: translateY(-5px); 
+        }
+
+        input[type="text"] {
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 5px;
+        }
+
+        #container.show {
+            display: block;
+            animation: flipbook 2s ease-in-out forwards;
+        }
+
+        @keyframes flipbook {
+            0% {
+                transform: perspective(1000px) rotateY(-90deg);
+                opacity: 0;
+            }
+            100% {
+                transform: perspective(1000px) rotateY(0deg);
+                opacity: 1;
+            }
+        }
+
+        .hide {
+            display: none;
+        }
+
+        h1 {
+        text-align: center;
+        font-family: 'Poppins', sans-serif;
+        transition: 1s ease;
+    }
+    </style>
+    </head>
+
+
+    <body>
+    <h1 id="flip-title">"Inventory System For Your Needs!"<br> Code By: Amaza, Austero, Bacud 9 - Sodium</h1>
+
+    <div id="container">
+        <h2 style="text-align: center; margin-bottom: 20px;">Inventory System</h2>
+        <div style="margin-bottom: 10px;">
+            <button onclick="addItemPrompt()">Add Item</button>
+            <button onclick="removeItemPrompt()">Remove Item</button>
+            <button onclick="addNoOfItemPrompt()">Add Number of Items</button>
+            <button onclick="subNoOfItemPrompt()">Subtract Number of Items</button>
+            <button onclick="displayItems()">Display Inventory</button>
+        </div>
+        <div id="inventory"></div>
+    </div>
+
+    <script>
+        var supply = [];
+
+        function addItem(name, num) {
+            var existingItem = supply.find(item => item.itemName === name);
+            if (existingItem) {
+                existingItem.noOfItem += num;
+            } else {
+                supply.push({ itemName: name, noOfItem: num });
+            }
+        }
+
+        function removeItem(name) {
+            supply = supply.filter(item => item.itemName !== name);
+        }
+
+        function addNoOfItem(name, numToAdd) {
+            var existingItem = supply.find(item => item.itemName === name);
+            if (existingItem) {
+                existingItem.noOfItem += numToAdd;
+            }
+        }
+
+        function subNoOfItem(name, numToSubtract) {
+            var existingItem = supply.find(item => item.itemName === name);
+            if (existingItem) {
+                existingItem.noOfItem -= numToSubtract;
+                if (existingItem.noOfItem < 0) {
+                    existingItem.noOfItem = 0;
+                }
+            }
+        }
+
+        function displayItems() {
+            var inventoryDiv = document.getElementById("inventory");
+            inventoryDiv.innerHTML = "";
+            if (supply.length === 0) {
+                inventoryDiv.innerHTML = "<p>No items in inventory.</p>";
+                return;
+            }
+            var table = document.createElement("table");
+            var header = table.createTHead();
+            var row = header.insertRow();
+            row.insertCell(0).innerHTML = "<b>Item Name</b>";
+            row.insertCell(1).innerHTML = "<b>No. of Items</b>";
+            var body = table.createTBody();
+            supply.forEach(item => {
+                var row = body.insertRow();
+                row.insertCell(0).innerHTML = item.itemName;
+                row.insertCell(1).innerHTML = item.noOfItem;
+            });
+            inventoryDiv.appendChild(table);
+        }
+
+        function addItemPrompt() {
+            var name = prompt("Enter item name:");
+            var num = parseInt(prompt("Enter number of items:"));
+            if (name && !isNaN(num) && num > 0) {
+                addItem(name, num);
+                displayItems();
+            } else {
+                alert("Invalid input.");
+            }
+        }
+
+        function removeItemPrompt() {
+            var name = prompt("Enter item name to remove:");
+            if (name) {
+                removeItem(name);
+                displayItems();
+            }
+        }
+
+        function addNoOfItemPrompt() {
+            var name = prompt("Enter item name to add more items:");
+            if (name) {
+                var numToAdd = parseInt(prompt("Enter number of items to add:"));
+                if (!isNaN(numToAdd) && numToAdd > 0) {
+                    addNoOfItem(name, numToAdd);
+                    displayItems();
+                } else {
+                    alert("Invalid input.");
+                }
+            }
+        }
+
+        function subNoOfItemPrompt() {
+            var name = prompt("Enter item name to subtract items:");
+            if (name) {
+                var numToSubtract = parseInt(prompt("Enter number of items to subtract:"));
+                if (!isNaN(numToSubtract) && numToSubtract > 0) {
+                    subNoOfItem(name, numToSubtract);
+                    displayItems();
+                } else {
+                    alert("Invalid input.");
+                }
+            }
+        }
+
+
+        setTimeout(function() {
+            document.getElementById("container").classList.add("show");
+            document.getElementById("flip-title").classList.add("hide");
+        }, 2000);
+    </script>
+    </body>
+    </html>
